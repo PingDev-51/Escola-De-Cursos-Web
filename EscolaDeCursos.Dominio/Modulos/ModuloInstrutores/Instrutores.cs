@@ -1,0 +1,53 @@
+using System;
+using EscolaDeCursos.Dominio.Compartilhado;
+
+namespace EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
+
+public class Instrutores : EntidadeBase<Instrutores>
+{
+    public string Nome { get; set; } = string.Empty;
+    public string Telefone { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Graduacao { get; set; } = string.Empty;
+
+    public Instrutores() { }
+
+    public Instrutores(string nome, string telefone, string email, string graduacao)
+    {
+        Nome = nome;
+        Telefone = telefone;
+        Email = email;
+        Graduacao = graduacao;
+    }
+
+    public override void Atualizar(Instrutores entidadeAtualizada)
+    {
+        Nome = entidadeAtualizada.Nome;
+        Telefone = entidadeAtualizada.Telefone;
+        Email = entidadeAtualizada.Email;
+        Graduacao = entidadeAtualizada.Graduacao;
+    }
+
+    public override List<string> Validar()
+    {
+        List<string> erros = new();
+
+        if (string.IsNullOrEmpty(Nome))
+            erros.Add("O campo Nome é Obrigatorio;");
+        else if (Nome.Length < 2 || Nome.Length > 100)
+            erros.Add("O campo Nome deve conter entre 2 a 100 caracteres;");
+
+        if (string.IsNullOrEmpty(Telefone))
+            erros.Add("O campo Telefone é Obrigatorio;");
+        else if (Telefone.Length != 14)
+            erros.Add("O campo Telefone deve conter 14 caracteres;");
+
+        if (string.IsNullOrEmpty(Email))
+            erros.Add("O campo Email é Obrigatorio;");
+
+        if (string.IsNullOrEmpty(Graduacao))
+            erros.Add("O campo Graduação é Obrigatorio;");
+
+        return erros;
+    }
+}
