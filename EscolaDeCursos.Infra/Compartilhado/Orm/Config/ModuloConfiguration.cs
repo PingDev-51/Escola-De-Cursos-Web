@@ -1,7 +1,6 @@
 
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EscolaDeCursos.Infra.Compartilhado.Orm.Config;
