@@ -28,6 +28,9 @@
             "projectReferences": {
               "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj": {
                 "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj"
+              },
+              "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj": {
+                "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj"
               }
             }
           }

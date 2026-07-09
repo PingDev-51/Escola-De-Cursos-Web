@@ -1246,6 +1246,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "EscolaDeCursos.Dominio": "1.0.0",
+          "EscolaDeCursos.Infra": "1.0.0",
           "FluentResults": "4.0.0"
         },
         "compile": {

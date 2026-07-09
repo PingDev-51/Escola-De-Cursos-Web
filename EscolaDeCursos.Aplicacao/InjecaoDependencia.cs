@@ -1,3 +1,6 @@
+using EscolaDeCursos.Aplicacao.Modulos.ModulosCurso;
+using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
+using EscolaDeCursos.Infra.Modulos.ModulosCurso;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +13,7 @@ public static class InjecaoDependencia
         IConfiguration configuration
     )
     {
-
+        services.AddScoped<ServicoModulo>();
+        services.AddScoped<IRepositorioModulo, RepositorioModuloEmOrm>();
     }
 }
