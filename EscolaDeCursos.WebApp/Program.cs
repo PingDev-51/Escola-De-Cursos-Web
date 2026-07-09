@@ -1,13 +1,9 @@
-using EscolaDeCursos.Infra;
-using EscolaDeCursos.WebApp.Compartilhado;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuração do container de injeção de dependência
-
-builder.Services.AddInfraRepositories(builder.Configuration, builder.Logging);
+// TODO: Injetar camada de infraestrutura
 // TODO: Injetar camada de aplicação
-builder.Services.AddPresentationConfig(builder.Configuration);
+// TODO: Injetar camada de apresentação
 
 var app = builder.Build();
 
