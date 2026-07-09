@@ -1237,6 +1237,47 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "EscolaDeCursos.Aplicacao/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "EscolaDeCursos.Dominio": "1.0.0",
+          "FluentResults": "4.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EscolaDeCursos.Aplicacao.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EscolaDeCursos.Aplicacao.dll": {}
+        }
+      },
+      "EscolaDeCursos.Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/EscolaDeCursos.Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EscolaDeCursos.Dominio.dll": {}
+        }
+      },
+      "EscolaDeCursos.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.9",
+          "Serilog.AspNetCore": "10.0.0",
+          "Serilog.Sinks.Console": "6.1.1",
+          "Serilog.Sinks.File": "7.0.0",
+          "Serilog.Sinks.NewRelic.Logs": "1.3.0"
+        },
+        "compile": {
+          "bin/placeholder/EscolaDeCursos.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EscolaDeCursos.Infra.dll": {}
+        }
       }
     }
   },
@@ -3556,18 +3597,30 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "EscolaDeCursos.Aplicacao/1.0.0": {
+      "type": "project",
+      "path": "../EscolaDeCursos.Aplicacao/EscolaDeCursos.Aplicacao.csproj",
+      "msbuildProject": "../EscolaDeCursos.Aplicacao/EscolaDeCursos.Aplicacao.csproj"
+    },
+    "EscolaDeCursos.Dominio/1.0.0": {
+      "type": "project",
+      "path": "../EscolaDeCursos.Dominio/EscolaDeCursos.Dominio.csproj",
+      "msbuildProject": "../EscolaDeCursos.Dominio/EscolaDeCursos.Dominio.csproj"
+    },
+    "EscolaDeCursos.Infra/1.0.0": {
+      "type": "project",
+      "path": "../EscolaDeCursos.Infra/EscolaDeCursos.Infra.csproj",
+      "msbuildProject": "../EscolaDeCursos.Infra/EscolaDeCursos.Infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "AutoMapper >= 16.1.1",
-      "FluentResults >= 4.0.0",
-      "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.9",
-      "Serilog.AspNetCore >= 10.0.0",
-      "Serilog.Sinks.Console >= 6.1.1",
-      "Serilog.Sinks.File >= 7.0.0",
-      "Serilog.Sinks.NewRelic.Logs >= 1.3.0"
+      "EscolaDeCursos.Aplicacao >= 1.0.0",
+      "EscolaDeCursos.Dominio >= 1.0.0",
+      "EscolaDeCursos.Infra >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.Design >= 10.0.9"
     ]
   },
   "packageFolders": {
@@ -3594,7 +3647,17 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Aplicacao\\EscolaDeCursos.Aplicacao.csproj": {
+              "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Aplicacao\\EscolaDeCursos.Aplicacao.csproj"
+            },
+            "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj": {
+              "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj"
+            },
+            "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj": {
+              "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3617,35 +3680,11 @@
             "target": "Package",
             "version": "[16.1.1, )"
           },
-          "FluentResults": {
-            "target": "Package",
-            "version": "[4.0.0, )"
-          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.9, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "[10.0.9, )"
-          },
-          "Serilog.AspNetCore": {
-            "target": "Package",
-            "version": "[10.0.0, )"
-          },
-          "Serilog.Sinks.Console": {
-            "target": "Package",
-            "version": "[6.1.1, )"
-          },
-          "Serilog.Sinks.File": {
-            "target": "Package",
-            "version": "[7.0.0, )"
-          },
-          "Serilog.Sinks.NewRelic.Logs": {
-            "target": "Package",
-            "version": "[1.3.0, )"
           }
         },
         "imports": [
