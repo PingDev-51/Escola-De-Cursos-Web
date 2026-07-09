@@ -8,7 +8,7 @@ public class Instrutores : EntidadeBase<Instrutores>
     public string Nome { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-    public string Graduacao { get; set; } = string.Empty;
+    public string Graducao { get; set; } = string.Empty;
 
     public Instrutores() { }
 
@@ -17,7 +17,7 @@ public class Instrutores : EntidadeBase<Instrutores>
         Nome = nome;
         Telefone = telefone;
         Email = email;
-        Graduacao = graduacao;
+        Graducao = graduacao;
     }
 
     public override void Atualizar(Instrutores entidadeAtualizada)
@@ -25,7 +25,7 @@ public class Instrutores : EntidadeBase<Instrutores>
         Nome = entidadeAtualizada.Nome;
         Telefone = entidadeAtualizada.Telefone;
         Email = entidadeAtualizada.Email;
-        Graduacao = entidadeAtualizada.Graduacao;
+        Graducao = entidadeAtualizada.Graducao;
     }
 
     public override List<string> Validar()
@@ -45,7 +45,7 @@ public class Instrutores : EntidadeBase<Instrutores>
         if (string.IsNullOrEmpty(Email))
             erros.Add("O campo Email é Obrigatorio;");
 
-        if (string.IsNullOrEmpty(Graduacao))
+        if (string.IsNullOrEmpty(Graducao))
             erros.Add("O campo Graduação é Obrigatorio;");
 
         return erros;

@@ -10,6 +10,6 @@ public static class InjecaoDependencia
         IConfiguration configuration
     )
     {
-
+        // ADDScped<ServicoIntrutor>
     }
 }
