@@ -1,4 +1,3 @@
-
 namespace EscolaDeCursos.Aplicacao.Modulos.ModulosCurso;
 
 public record ListarModulosDto(
