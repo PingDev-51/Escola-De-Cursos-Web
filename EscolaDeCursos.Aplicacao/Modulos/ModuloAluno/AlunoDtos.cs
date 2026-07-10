@@ -2,7 +2,9 @@ using System;
 
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloAluno;
 
-public class AlunoDtos
-{
-
-}
+public record ListarAlunosDto(
+    Guid Id,
+    string Nome,
+    string Telefone,
+    string Email
+);
