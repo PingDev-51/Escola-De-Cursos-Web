@@ -21,5 +21,6 @@ public static class InjecaoDependencia
 
         services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();
         services.AddScoped<IRepositorioModulo, RepositorioModuloEmOrm>();
+        // ADDScped<ServicoIntrutor>
     }
 }
