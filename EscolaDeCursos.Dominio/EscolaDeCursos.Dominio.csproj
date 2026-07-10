@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Modulos\" />
+    <Folder Include="Modulos\ModuloAluno\" />
     <Folder Include="Modulos\ModuloInstrutores\" />
   </ItemGroup>
 
