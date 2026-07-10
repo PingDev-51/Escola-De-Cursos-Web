@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "557Cp+0OAHY=",
+  "dgSpecHash": "HYvudtX5kjo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo4\\EscolaDeCursos\\EscolaDeCursos.WebApp\\EscolaDeCursos.WebApp.csproj",
+  "projectFilePath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.WebApp\\EscolaDeCursos.WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kauan\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
@@ -64,15 +64,5 @@
     "C:\\Users\\kauan\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.4\\system.security.cryptography.pkcs.9.0.4.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.4\\system.security.cryptography.protecteddata.9.0.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "message": "Problem reading the cache file C:\\Users\\kauan\\Documents\\CursoADP\\Modulo4\\EscolaDeCursos\\EscolaDeCursos.WebApp\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
-      "projectPath": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo4\\EscolaDeCursos\\EscolaDeCursos.WebApp\\EscolaDeCursos.WebApp.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo4\\EscolaDeCursos\\EscolaDeCursos.WebApp\\EscolaDeCursos.WebApp.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
