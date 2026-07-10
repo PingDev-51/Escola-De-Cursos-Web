@@ -13,8 +13,10 @@ public record ListarInstrutorViewModel(
 
 
 public record CadastrarInstrutorViewModel(
-
+    [Required(ErrorMessage = "O campo Nome é obrigatorio")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "O campo Nome deve conter entre 2 a 100 caracteres.")]
     string Nome,
+
 
     string Telefone,
     string Email,
