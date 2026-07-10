@@ -23,8 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modulos\ModuloAluno\" />
-    <Folder Include="Modulos\ModuloAluno\views\" />
+    <Folder Include="Modulos\ModuloAluno\Views\" />
   </ItemGroup>
 
 </Project>
