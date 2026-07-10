@@ -22,13 +22,4 @@ public sealed class RepositorioTurmaEmOrm(EscolaDeCursosDbContext dbContext) :
             .Include(t => t.Instrutor)
             .ToList();
     }
-
-    public override List<Turma> Filtrar(Func<Turma, bool> filtro)
-    {
-        return registros
-            .Include(t => t.Curso)
-            .Include(t => t.Instrutor)
-            .Where(filtro)
-            .ToList();
-    }
 }

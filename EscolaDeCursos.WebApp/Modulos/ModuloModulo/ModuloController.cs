@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDeCursos.WebApp.Modulos.ModulosCurso;
 
-
 public class ModuloController(ServicoModulo servicoModulo, IMapper mapeador) : Controller
 {
     [HttpGet]
