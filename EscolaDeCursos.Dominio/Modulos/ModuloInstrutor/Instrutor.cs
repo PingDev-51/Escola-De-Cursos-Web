@@ -3,29 +3,29 @@ using EscolaDeCursos.Dominio.Compartilhado;
 
 namespace EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
 
-public class Instrutores : EntidadeBase<Instrutores>
+public class Instrutor : EntidadeBase<Instrutor>
 {
     public string Nome { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-    public string Graducao { get; set; } = string.Empty;
+    public string Graduacao { get; set; } = string.Empty;
 
-    public Instrutores() { }
+    public Instrutor() { }
 
-    public Instrutores(string nome, string telefone, string email, string graduacao)
+    public Instrutor(string nome, string telefone, string email, string graduacao)
     {
         Nome = nome;
         Telefone = telefone;
         Email = email;
-        Graducao = graduacao;
+        Graduacao = graduacao;
     }
 
-    public override void Atualizar(Instrutores entidadeAtualizada)
+    public override void Atualizar(Instrutor entidadeAtualizada)
     {
         Nome = entidadeAtualizada.Nome;
         Telefone = entidadeAtualizada.Telefone;
         Email = entidadeAtualizada.Email;
-        Graducao = entidadeAtualizada.Graducao;
+        Graduacao = entidadeAtualizada.Graduacao;
     }
 
     public override List<string> Validar()
@@ -45,7 +45,7 @@ public class Instrutores : EntidadeBase<Instrutores>
         if (string.IsNullOrEmpty(Email))
             erros.Add("O campo Email é Obrigatorio;");
 
-        if (string.IsNullOrEmpty(Graducao))
+        if (string.IsNullOrEmpty(Graduacao))
             erros.Add("O campo Graduação é Obrigatorio;");
 
         return erros;

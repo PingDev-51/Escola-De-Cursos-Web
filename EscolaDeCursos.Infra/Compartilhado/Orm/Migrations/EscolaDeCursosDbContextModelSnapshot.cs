@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
+namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migrations
 {
     [DbContext(typeof(EscolaDeCursosDbContext))]
     partial class EscolaDeCursosDbContextModelSnapshot : ModelSnapshot
@@ -47,6 +47,45 @@ namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
                     b.HasIndex("ModuloId");
 
                     b.ToTable("TBCurso", (string)null);
+                });
+
+            modelBuilder.Entity("EscolaDeCursos.Dominio.Modulos.ModuloInstrutores.Instrutores", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Graduacao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_TBInstruto");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasDatabaseName("UQ_TBInstrutores_Email");
+
+                    b.HasIndex("Telefone")
+                        .IsUnique()
+                        .HasDatabaseName("UQ_TBInstrutores_Telefone");
+
+                    b.ToTable("TBInstrutor", (string)null);
                 });
 
             modelBuilder.Entity("EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso.Modulo", b =>

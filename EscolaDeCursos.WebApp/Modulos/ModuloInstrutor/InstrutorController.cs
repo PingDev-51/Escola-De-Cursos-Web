@@ -70,7 +70,7 @@ public class InstrutorController(ServicoInstrutores servicoInstrutores, IMapper 
         return View(editarVm);
     }
 
-    [HttpGet]
+    [HttpPost]
     public ActionResult Editar(EditarInstrutorViewModel editarVm)
     {
         if (!ModelState.IsValid)

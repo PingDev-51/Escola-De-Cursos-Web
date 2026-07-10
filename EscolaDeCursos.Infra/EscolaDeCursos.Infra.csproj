@@ -24,11 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modulos\" />
-    <Folder Include="Modulos\ModuloInstrutores\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\EscolaDeCursos.Dominio\EscolaDeCursos.Dominio.csproj" />
   </ItemGroup>
 

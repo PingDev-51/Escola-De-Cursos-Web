@@ -5,7 +5,7 @@ using FluentResults;
 
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloInstrutores;
 
-public class ServicoInstrutores : ServicoBase<Instrutores>
+public class ServicoInstrutores : ServicoBase<Instrutor>
 {
     private readonly IRepositorioInstrutores repositorioInstrutores;
 
@@ -18,11 +18,11 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
     {
         // fazer validação de duplicação
 
-        Instrutores novoinstrutor = new Instrutores(
+        Instrutor novoinstrutor = new Instrutor(
             dto.Nome,
             dto.Telefone,
             dto.Email,
-            dto.Graducao
+            dto.Graduacao
         );
 
         Result resultadoValidacao = ValidarEntidade(novoinstrutor);
@@ -39,11 +39,11 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
     {
         //validar duplicacao
 
-        Instrutores instrutorAtualizado = new Instrutores(
+        Instrutor instrutorAtualizado = new Instrutor(
             dto.Nome,
             dto.Telefone,
             dto.Email,
-            dto.Graducao
+            dto.Graduacao
         );
 
         Result resultadoValidacao = ValidarEntidade(instrutorAtualizado);
@@ -61,7 +61,7 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
 
     public Result Excluir(Guid id)
     {
-        Instrutores? instrutores = repositorioInstrutores.SelecionarPorId(id);
+        Instrutor? instrutores = repositorioInstrutores.SelecionarPorId(id);
 
         if (instrutores == null)
             return Falha(string.Empty, "Instrutor não encontrado.");
@@ -73,7 +73,7 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
 
     public Result<DetalheInstrutoresDto> SelecionarPorId(Guid id)
     {
-        Instrutores? instrutor = repositorioInstrutores.SelecionarPorId(id);
+        Instrutor? instrutor = repositorioInstrutores.SelecionarPorId(id);
 
         if (instrutor == null)
             return Result.Fail("Instrutor não encontrado.");
@@ -83,7 +83,7 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
             instrutor.Nome,
             instrutor.Telefone,
             instrutor.Email,
-            instrutor.Graducao
+            instrutor.Graduacao
         ));
     }
 
@@ -94,7 +94,7 @@ public class ServicoInstrutores : ServicoBase<Instrutores>
             c.Nome,
             c.Telefone,
             c.Email,
-            c.Graducao
+            c.Graduacao
         )).ToList();
     }
 }

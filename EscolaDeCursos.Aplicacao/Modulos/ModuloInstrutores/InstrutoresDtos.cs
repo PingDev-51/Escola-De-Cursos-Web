@@ -7,14 +7,14 @@ public record ListarInstrutoresDto(
     string Nome,
     string Telefone,
     string Email,
-    string Graducao
+    string Graduacao
 );
 
 public record CadastrarInstrutoresDto(
     string Nome,
     string Telefone,
     string Email,
-    string Graducao
+    string Graduacao
 );
 
 public record EditarInstrutoresDto(
@@ -22,7 +22,7 @@ public record EditarInstrutoresDto(
     string Nome,
     string Telefone,
     string Email,
-    string Graducao
+    string Graduacao
 );
 
 public record DetalheInstrutoresDto(
@@ -30,7 +30,7 @@ public record DetalheInstrutoresDto(
     string Nome,
     string Telefone,
     string Email,
-    string Graducao
+    string Graduacao
 );
 
 public record ExcluirInstrutoresDto(
@@ -38,5 +38,5 @@ public record ExcluirInstrutoresDto(
     string Nome,
     string Telefone,
     string Email,
-    string Graducao
+    string Graduacao
 );

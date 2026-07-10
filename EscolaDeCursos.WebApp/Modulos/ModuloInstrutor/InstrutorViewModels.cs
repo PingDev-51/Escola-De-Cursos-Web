@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace EscolaDeCursos.WebApp.Modulos.ModuloInstrutores;
 
@@ -12,7 +13,9 @@ public record ListarInstrutorViewModel(
 
 
 public record CadastrarInstrutorViewModel(
+
     string Nome,
+
     string Telefone,
     string Email,
     string Graduacao

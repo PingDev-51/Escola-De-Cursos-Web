@@ -4,5 +4,5 @@ using EscolaDeCursos.Infra.Compartilhado.Orm;
 
 namespace EscolaDeCursos.Infra.Modulos.ModuloInstrutores;
 
-public class RepositorioInstrutoresEmSql(EscolaDeCursosDbContext dbContext)
-: RepositorioBaseEmOrm<Instrutores>(dbContext), IRepositorioInstrutores;
+public class RepositorioInstrutoresEmOrm(EscolaDeCursosDbContext dbContext)
+: RepositorioBaseEmOrm<Instrutor>(dbContext), IRepositorioInstrutores;
