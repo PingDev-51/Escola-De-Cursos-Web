@@ -55,7 +55,14 @@ public class ServicoAluno : ServicoBase<Aluno>
 
     public Result Excluir(Guid id)
     {
-        throw new NotImplementedException();
+        Aluno? aluno = repositorioAluno.SelecionarPorId(id);
+
+        if (aluno == null)
+            return Falha(string.Empty, "Instrutor não encontrado.");
+
+        repositorioAluno.Excluir(id);
+
+        return Result.Ok();
     }
 
     public Result<DetalhesAlunosDto> SelecionarPorId(Guid id)

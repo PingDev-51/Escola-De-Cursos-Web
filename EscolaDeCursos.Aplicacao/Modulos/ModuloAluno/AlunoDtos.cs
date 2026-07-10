@@ -27,3 +27,10 @@ public record DetalhesAlunosDto(
     string Telefone,
     string Email
 );
+
+public record ExcluirAlunosDto(
+    Guid Id,
+    string Nome,
+    string Telefone,
+    string Email
+);

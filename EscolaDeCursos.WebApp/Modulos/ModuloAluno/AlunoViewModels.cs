@@ -40,4 +40,10 @@ public record EditarAlunosViewModel(
     string Email
 );
 
+public record ExcluirAlunosViewModel(
+    Guid Id,
+    string Nome,
+    string Telefone,
+    string Email
+);
 
