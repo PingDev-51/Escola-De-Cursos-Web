@@ -13,3 +13,17 @@ public record CadastrarAlunosDto(
     string Telefone,
     string Email
 );
+
+public record EditarAlunosDto(
+    Guid Id,
+    string Nome,
+    string Telefone,
+    string Email
+);
+
+public record DetalhesAlunosDto(
+    Guid Id,
+    string Nome,
+    string Telefone,
+    string Email
+);

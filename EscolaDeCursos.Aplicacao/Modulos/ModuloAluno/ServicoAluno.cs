@@ -32,9 +32,25 @@ public class ServicoAluno : ServicoBase<Aluno>
         return Result.Ok();
     }
 
-    public Result Editar(Guid id)
+    public Result Editar(EditarAlunosDto dto)
     {
-        throw new NotImplementedException();
+        Aluno alunoAtualizado = new Aluno(
+            dto.Nome,
+            dto.Telefone,
+            dto.Email
+        );
+
+        Result resultadoValidacao = ValidarEntidade(alunoAtualizado);
+
+        if (resultadoValidacao.IsFailed)
+            return resultadoValidacao;
+
+        bool conseguiuEditar = repositorioAluno.Editar(dto.Id, alunoAtualizado);
+
+        if (!conseguiuEditar)
+            return Falha(string.Empty, "Aluno não encontrado.");
+
+        return Result.Ok();
     }
 
     public Result Excluir(Guid id)
@@ -42,9 +58,19 @@ public class ServicoAluno : ServicoBase<Aluno>
         throw new NotImplementedException();
     }
 
-    public Result SelecionarPorId(Guid id)
+    public Result<DetalhesAlunosDto> SelecionarPorId(Guid id)
     {
-        throw new NotImplementedException();
+        Aluno? aluno = repositorioAluno.SelecionarPorId(id);
+
+        if (aluno == null)
+            return Result.Fail("Instrutor não encontrado.");
+
+        return Result.Ok(new DetalhesAlunosDto(
+            aluno.Id,
+            aluno.Nome,
+            aluno.Telefone,
+            aluno.Email
+        ));
     }
 
     public List<ListarAlunosDto> SelecionarTodos()

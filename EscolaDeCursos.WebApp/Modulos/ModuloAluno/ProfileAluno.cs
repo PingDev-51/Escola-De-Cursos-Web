@@ -11,5 +11,8 @@ public class ProfileAluno : Profile
     {
         CreateMap<ListarAlunosDto, ListarAlunosViewModel>();
         CreateMap<CadastrarAlunosViewModel, CadastrarAlunosDto>();
+        CreateMap<EditarAlunosViewModel, EditarAlunosDto>();
+
+        CreateMap<DetalhesAlunosDto, EditarAlunosViewModel>();
     }
 }
