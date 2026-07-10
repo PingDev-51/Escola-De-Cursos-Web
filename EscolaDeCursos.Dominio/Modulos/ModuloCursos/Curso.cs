@@ -34,7 +34,7 @@ public class Curso : EntidadeBase<Curso>
         List<string> erros = [];
 
         if (string.IsNullOrWhiteSpace(Nome) || Nome.Length < 2 || Nome.Length > 100)
-            erros.Add("O campo \"Assunto\" deve conter entre 2 e 100 caracteres.");
+            erros.Add("O campo \"Nome\" deve conter entre 2 e 100 caracteres.");
 
         if (!Enum.IsDefined(Nivel))
             erros.Add("O campo \"Nivel\" deve ser preenchido.");
