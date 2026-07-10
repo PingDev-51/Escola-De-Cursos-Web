@@ -17,7 +17,7 @@ public class Turma : EntidadeBase<Turma>
 
     Turma() { }
 
-    Turma(string nome, Curso curso,
+    public Turma(string nome, Curso curso,
     Instrutor instrutor,
     string numeroMaxDeAlunos,
     DateTime dataInicio,
