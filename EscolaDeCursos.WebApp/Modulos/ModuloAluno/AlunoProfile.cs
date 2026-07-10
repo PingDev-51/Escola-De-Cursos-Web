@@ -5,14 +5,14 @@ using EscolaDeCursos.Dominio.Modulos.ModuloAluno;
 
 namespace EscolaDeCursos.WebApp.Modulos.ModuloAluno;
 
-public class ProfileAluno : Profile
+public class AlunoProfile : Profile
 {
-    public ProfileAluno()
+    public AlunoProfile()
     {
         CreateMap<ListarAlunosDto, ListarAlunosViewModel>();
         CreateMap<CadastrarAlunosViewModel, CadastrarAlunosDto>();
         CreateMap<EditarAlunosViewModel, EditarAlunosDto>();
-        CreateMap<ExcluirAlunosViewModel, ExcluirAlunosDto>();
+
         CreateMap<DetalhesAlunosDto, EditarAlunosViewModel>();
         CreateMap<DetalhesAlunosDto, ExcluirAlunosViewModel>();
     }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDeCursos.WebApp.Modulos.ModuloAluno;
 
-public class ControllerAluno(ServicoAluno servicoAluno, IMapper mapeador) : Controller
+public class AlunoController(ServicoAluno servicoAluno, IMapper mapeador) : Controller
 {
     [HttpGet]
     public ActionResult Listar()
@@ -23,7 +23,7 @@ public class ControllerAluno(ServicoAluno servicoAluno, IMapper mapeador) : Cont
     [HttpGet]
     public ActionResult Cadastrar()
     {
-        Aluno cadastrarVm = new Aluno(
+        CadastrarAlunosViewModel cadastrarVm = new CadastrarAlunosViewModel(
             string.Empty,
             string.Empty,
             string.Empty
