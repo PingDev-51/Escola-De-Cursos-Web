@@ -1,11 +1,12 @@
-﻿@using EscolaDeCursos.WebApp.Modulos.ModuloCurso
+﻿@using EscolaDeCursos.WebApp.Modulos.ModuloAluno
+@using EscolaDeCursos.WebApp.Modulos.ModuloCurso
 @using EscolaDeCursos.WebApp.Modulos.ModuloInstrutores
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Listagem de Instrutores";
+    ViewBag.Titulo = "Listagem de Alunos";
 }
 
-@model List<ListarInstrutorViewModel>;
+@model List<ListarAlunosViewModel>;
 
 <a class="btn btn-outline-primary rounded-pill px-4 mb-3" asp-action="Cadastrar">Cadastrar Novo</a>
 
@@ -19,13 +20,13 @@
 @if (Model.Count == 0)
 {
     <div class="alert alert-primary border-start border-primary border-4 rounded-3" role="alert">
-        Nenhum Instrutor cadastrado.
+        Nenhum Aluno cadastrado.
     </div>
 }
 else
 {
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2">
-        @foreach (ListarInstrutorViewModel i in Model)
+        @foreach (ListarAlunosViewModel i in Model)
         {
             <div class="col">
                 <div class="card h-100">
@@ -41,9 +42,6 @@ else
 
                             <dt class="col-5 text-secondary fw-semibold">Email</dt>
                             <dd class="col-7 mb-0 text-break">@i.Email</dd>
-
-                            <dt class="col-5 text-secondary fw-semibold">Graduação</dt>
-                            <dd class="col-7 mb-0 text-break">@i.Graduacao</dd>
                         </dl>
 
                         <div class="d-flex flex-wrap gap-2 mt-auto justify-content-end">
