@@ -1,3 +1,4 @@
+using EscolaDeCursos.Aplicacao.Modulos.ModuloCursos;
 using EscolaDeCursos.Aplicacao.Modulos.ModulosCurso;
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
@@ -15,6 +16,7 @@ public static class InjecaoDependencia
         IConfiguration configuration
     )
     {
+        services.AddScoped<ServicoCurso>();
         services.AddScoped<ServicoModulo>();
 
         services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();

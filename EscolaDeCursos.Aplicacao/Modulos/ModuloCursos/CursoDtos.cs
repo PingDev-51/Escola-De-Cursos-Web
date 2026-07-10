@@ -1,7 +1,6 @@
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloCursos;
-
 public record ListarCursosDto(
     Guid Id,
     string Nome,
@@ -15,8 +14,7 @@ public record CadastrarCursosDto(
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
-    Guid ModuloId,
-    string ModuloNome
+    Guid ModuloId
 );
 
 public record EditarCursosDto(
@@ -24,8 +22,7 @@ public record EditarCursosDto(
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
-    Guid ModuloId,
-    string ModuloNome
+    Guid ModuloId
 );
 
 public record DetalhesCursosDto(
@@ -33,7 +30,7 @@ public record DetalhesCursosDto(
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
-    Guid ModuloI,
+    Guid ModuloId,
     string ModuloNome
 );
 
