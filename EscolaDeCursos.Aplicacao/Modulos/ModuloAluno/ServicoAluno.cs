@@ -14,9 +14,22 @@ public class ServicoAluno : ServicoBase<Aluno>
         this.repositorioAluno = repositorioAluno;
     }
 
-    public Result Cadastrar()
+    public Result Cadastrar(CadastrarAlunosDto dto)
     {
-        throw new NotImplementedException();
+        Aluno novoAluno = new Aluno(
+            dto.Nome,
+            dto.Telefone,
+            dto.Email
+        );
+
+        Result resultadoValidacao = ValidarEntidade(novoAluno);
+
+        if (resultadoValidacao.IsFailed)
+            return resultadoValidacao;
+
+        repositorioAluno.Cadastrar(novoAluno);
+
+        return Result.Ok();
     }
 
     public Result Editar(Guid id)

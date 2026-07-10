@@ -8,3 +8,8 @@ public record ListarAlunosDto(
     string Telefone,
     string Email
 );
+public record CadastrarAlunosDto(
+    string Nome,
+    string Telefone,
+    string Email
+);
