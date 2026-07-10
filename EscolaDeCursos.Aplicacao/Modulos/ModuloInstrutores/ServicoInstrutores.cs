@@ -16,7 +16,8 @@ public class ServicoInstrutores : ServicoBase<Instrutor>
 
     public Result Cadastrar(CadastrarInstrutoresDto dto)
     {
-        // fazer validação de duplicação
+        if (ExisteDuplicacao(dto.Nome))
+            return Falha(nameof(dto.Nome), "Ja existe um instrutor com este nome.");
 
         Instrutor novoinstrutor = new Instrutor(
             dto.Nome,
@@ -37,7 +38,8 @@ public class ServicoInstrutores : ServicoBase<Instrutor>
 
     public Result Editar(EditarInstrutoresDto dto)
     {
-        //validar duplicacao
+        if (ExisteDuplicacao(dto.Nome, dto.Id))
+            return Falha(nameof(dto.Nome), "Ja existe um instrutor com este nome.");
 
         Instrutor instrutorAtualizado = new Instrutor(
             dto.Nome,
@@ -96,6 +98,24 @@ public class ServicoInstrutores : ServicoBase<Instrutor>
             c.Email,
             c.Graduacao
         )).ToList();
+    }
+
+
+    private bool ExisteDuplicacao(string titulo, Guid? idIgnorado = null)
+    {
+        string nomeNormalizado = NormalizarTitulo(titulo);
+
+        return repositorioInstrutores
+            .SelecionarTodos()
+            .Any(c =>
+                c.Id != idIgnorado &&
+                NormalizarTitulo(c.Nome) == nomeNormalizado
+            );
+    }
+
+    private static string NormalizarTitulo(string nome)
+    {
+        return nome.Trim().ToLowerInvariant();
     }
 }
 
