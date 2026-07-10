@@ -28,6 +28,9 @@
             "projectReferences": {
               "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj": {
                 "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Dominio\\EscolaDeCursos.Dominio.csproj"
+              },
+              "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj": {
+                "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Trabalhos\\Escola-De-Cursos-Web\\EscolaDeCursos.Infra\\EscolaDeCursos.Infra.csproj"
               }
             }
           }
@@ -732,6 +735,14 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[10.0.9, )"
