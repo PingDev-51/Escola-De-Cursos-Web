@@ -100,4 +100,9 @@ public class ServicoMatricula : ServicoBase<Matricula>
             .Select(a => new OpcaoAlunoDto(a.Id, a.Nome))
             .ToList();
     }
+
+    public string? SelecionarNomeTurma(Guid turmaId)
+    {
+        return repositorioTurma.SelecionarPorId(turmaId)?.Nome;
+    }
 }

@@ -23,6 +23,10 @@ public record CadastrarMatriculaViewModel(
     [Required(ErrorMessage = "O campo \"Turma\" deve ser preenchido.")]
     Guid TurmaId,
 
+
+    [ValidateNever]
+    string TurmaNome,
+
     [ValidateNever]
     List<OpcaoAlunoViewModel> Alunos
 );

@@ -29,6 +29,7 @@ public class MatriculaController(
         CadastrarMatriculaViewModel cadastrarVm = new(
             Guid.Empty,
             id,
+            servicoMatricula.SelecionarNomeTurma(id) ?? string.Empty,
             SelecionarAluno()
         );
 
