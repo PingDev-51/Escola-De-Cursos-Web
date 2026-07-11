@@ -54,6 +54,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9BbHVub1x2aWV3c1xMaXN0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kauan/Documents/CursoADP/Modulo4/EscolaDeCursos/EscolaDeCursos.WebApp/Modulos/ModuloCategoria/Views/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9DYXRlZ29yaWFcVmlld3NcQ2FkYXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kauan/Documents/CursoADP/Modulo4/EscolaDeCursos/EscolaDeCursos.WebApp/Modulos/ModuloCategoria/Views/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9DYXRlZ29yaWFcVmlld3NcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kauan/Documents/CursoADP/Modulo4/EscolaDeCursos/EscolaDeCursos.WebApp/Modulos/ModuloCategoria/Views/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9DYXRlZ29yaWFcVmlld3NcRXhjbHVpci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kauan/Documents/CursoADP/Modulo4/EscolaDeCursos/EscolaDeCursos.WebApp/Modulos/ModuloCategoria/Views/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9DYXRlZ29yaWFcVmlld3NcTGlzdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kauan/Documents/CursoADP/Modulo4/EscolaDeCursos/EscolaDeCursos.WebApp/Modulos/ModuloCurso/Views/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = TW9kdWxvc1xNb2R1bG9DdXJzb1xWaWV3c1xDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
