@@ -1,10 +1,8 @@
 using EscolaDeCursos.Dominio.Modulos.ModuloMatricula;
-using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EscolaDeCursos.Infra.Compartilhado.Orm.Config;
-
 
 public sealed class MatriculaConfiguration : IEntityTypeConfiguration<Matricula>
 {
@@ -12,23 +10,29 @@ public sealed class MatriculaConfiguration : IEntityTypeConfiguration<Matricula>
     {
         builder.ToTable("TBMatricula");
 
-        builder.HasKey(t => t.Id)
+        builder.HasKey(m => m.Id)
             .HasName("PK_TBMatricula");
 
-        builder.Property(f => f.Id)
+
+        builder.Property(m => m.Id)
             .ValueGeneratedNever();
 
-        builder.HasKey(t => t.MatriculaId)
-            .HasName("PK_TBMatriculaId");
 
-        builder.Property(f => f.MatriculaId)
-            .ValueGeneratedNever();
-
-        builder.HasOne(c => c.Aluno)
+        builder.HasOne(m => m.Aluno)
             .WithMany()
             .HasForeignKey("AlunoId")
-            .HasConstraintName("FK__TBMatricula_TBAluno")
+            .HasConstraintName("FK_TBMatricula_TBAluno")
             .OnDelete(DeleteBehavior.NoAction);
-    
+
+
+        builder.HasOne(m => m.Turma)
+            .WithMany()
+            .HasForeignKey("TurmaId")
+            .HasConstraintName("FK_TBMatricula_TBTurma")
+            .OnDelete(DeleteBehavior.NoAction);
+
+
+        builder.Property(m => m.MatriculaId)
+            .IsRequired();
     }
 }

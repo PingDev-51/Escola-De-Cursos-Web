@@ -1,8 +1,8 @@
 using EscolaDeCursos.Aplicacao.Compartilhado;
 using EscolaDeCursos.Dominio.Modulos.ModuloAluno;
 using EscolaDeCursos.Dominio.Modulos.ModuloMatricula;
+using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
 using FluentResults;
-
 
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloMatricula;
 
@@ -10,13 +10,16 @@ public class ServicoMatricula : ServicoBase<Matricula>
 {
     private readonly IRepositorioMatricula repositorioMatricula;
     private readonly IRepositorioAluno repositorioAluno;
+    private readonly IRepositorioTurma repositorioTurma;
 
     public ServicoMatricula(
         IRepositorioMatricula repositorioMatricula,
-        IRepositorioAluno repositorioAluno)
+        IRepositorioAluno repositorioAluno,
+        IRepositorioTurma repositorioTurma)
     {
         this.repositorioMatricula = repositorioMatricula;
         this.repositorioAluno = repositorioAluno;
+        this.repositorioTurma = repositorioTurma;
     }
 
     public Result Cadastrar(CadastrarMatriculaDto dto)
@@ -24,11 +27,17 @@ public class ServicoMatricula : ServicoBase<Matricula>
         Aluno? alunoSelecionado = repositorioAluno.SelecionarPorId(dto.AlunosId);
 
         if (alunoSelecionado == null)
-            return Falha(nameof(dto.AlunosId), "Selecione um aluno valido.");
+            return Falha(nameof(dto.AlunosId), "Selecione um aluno válido.");
+
+        Turma? turmaSelecionada = repositorioTurma.SelecionarPorId(dto.TurmaId);
+
+        if (turmaSelecionada == null)
+            return Falha(nameof(dto.TurmaId), "Selecione uma turma válida.");
 
         Matricula novaMatricula = new Matricula(
             alunoSelecionado,
-           dto.MatriculaId
+            turmaSelecionada,
+            dto.MatriculaId
         );
 
         Result resultadoValidacao = ValidarEntidade(novaMatricula);
@@ -46,7 +55,7 @@ public class ServicoMatricula : ServicoBase<Matricula>
         Matricula? matricula = repositorioMatricula.SelecionarPorId(id);
 
         if (matricula == null)
-            return Falha(string.Empty, "matricula não encontrado.");
+            return Falha(string.Empty, "Matrícula não encontrada.");
 
         repositorioMatricula.Excluir(id);
 
@@ -57,11 +66,12 @@ public class ServicoMatricula : ServicoBase<Matricula>
     {
         return repositorioMatricula
             .SelecionarTodos()
-            .Select(c => new ListarMatriculaDto(
-                c.Id,
-                c.Aluno.Id,
-                c.Aluno.Nome,
-                c.MatriculaId
+            .Select(m => new ListarMatriculaDto(
+                m.Id,
+                m.Aluno!.Id,
+                m.Aluno.Nome,
+                m.Turma!.Nome,
+                m.MatriculaId
             ))
             .ToList();
     }
@@ -71,12 +81,13 @@ public class ServicoMatricula : ServicoBase<Matricula>
         Matricula? matricula = repositorioMatricula.SelecionarPorId(id);
 
         if (matricula == null)
-            return Result.Fail("Matricula não encontrado.");
+            return Result.Fail("Matrícula não encontrada.");
 
         return Result.Ok(new DetalhesMatriculaDto(
             matricula.Id,
-            matricula.Aluno.Id,
+            matricula.Aluno!.Id,
             matricula.Aluno.Nome,
+            matricula.Turma!.Nome,
             matricula.MatriculaId
         ));
     }

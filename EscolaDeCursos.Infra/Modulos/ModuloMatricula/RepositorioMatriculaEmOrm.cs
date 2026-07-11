@@ -1,5 +1,4 @@
 using EscolaDeCursos.Dominio.Modulos.ModuloMatricula;
-using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
 using EscolaDeCursos.Infra.Compartilhado.Orm;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +11,7 @@ public sealed class RepositorioMatriculaEmOrm(EscolaDeCursosDbContext dbContext)
     {
         return registros
             .Include(m => m.Aluno)
+             .Include(m => m.Turma)
             .SingleOrDefault(m => m.Id == idSelecionado);
     }
 
@@ -19,6 +19,7 @@ public sealed class RepositorioMatriculaEmOrm(EscolaDeCursosDbContext dbContext)
     {
         return registros
             .Include(m => m.Aluno)
+            .Include(m => m.Turma)
             .ToList();
     }
 }
