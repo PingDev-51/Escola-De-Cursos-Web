@@ -19,3 +19,8 @@ public record DetalheCategoriaDto(
     Guid Id,
     string Nome
 );
+
+public record ExcluirCategoriaDto(
+    Guid Id,
+    string Nome
+);

@@ -15,3 +15,7 @@ public record EditarCategoriaViewModel(
     Guid Id,
     string Nome
 );
+public record ExcluirCategoriaViewModel(
+    Guid Id,
+    string Nome
+);
