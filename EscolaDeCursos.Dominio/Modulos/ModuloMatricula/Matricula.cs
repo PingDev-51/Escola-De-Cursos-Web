@@ -12,7 +12,7 @@ public class Matricula : EntidadeBase<Matricula>
 
     Matricula() {}
 
-    public Matricula(Aluno aluno, Curso curso, Guid matriculaId)
+    public Matricula(Aluno aluno, Guid matriculaId)
     {
         Aluno = aluno;
         MatriculaId = matriculaId;
