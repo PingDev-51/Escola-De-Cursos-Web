@@ -1,6 +1,7 @@
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloCursos;
+
 public record ListarCursosDto(
     Guid Id,
     string Nome,
