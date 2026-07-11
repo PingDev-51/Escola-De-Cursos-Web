@@ -1,11 +1,14 @@
+using EscolaDeCursos.Aplicacao.Modulos.ModuloAluno;
 using EscolaDeCursos.Aplicacao.Modulos.ModuloCursos;
 using EscolaDeCursos.Aplicacao.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Aplicacao.Modulos.ModulosCurso;
 using EscolaDeCursos.Aplicacao.Turmas.TurmaTurma;
+using EscolaDeCursos.Dominio.Modulos.ModuloAluno;
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 using EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
 using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
+using EscolaDeCursos.Infra.Modulos.ModuloAluno;
 using EscolaDeCursos.Infra.Modulos.ModuloCurso;
 using EscolaDeCursos.Infra.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Infra.Modulos.ModulosCurso;
@@ -25,11 +28,13 @@ public static class InjecaoDependencia
         services.AddScoped<ServicoCurso>();
         services.AddScoped<ServicoModulo>();
         services.AddScoped<ServicoInstrutores>();
+        services.AddScoped<ServicoAluno>();
         services.AddScoped<ServicoTurma>();
 
         services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();
         services.AddScoped<IRepositorioModulo, RepositorioModuloEmOrm>();
         services.AddScoped<IRepositorioInstrutores, RepositorioInstrutoresEmOrm>();
+        services.AddScoped<IRepositorioAluno, RepositorioAlunoEmOrm>();
         services.AddScoped<IRepositorioTurma, RepositorioTurmaEmOrm>();
         // ADDScped<ServicoIntrutor>
     }
