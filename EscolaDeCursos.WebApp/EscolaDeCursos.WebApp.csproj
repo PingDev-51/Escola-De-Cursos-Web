@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Modulos\ModuloAluno\Views\" />
+    <Folder Include="Modulos\ModuloCategoria\" />
   </ItemGroup>
 
 </Project>
