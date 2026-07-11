@@ -38,13 +38,5 @@ public static class InjecaoDependencia
         services.AddScoped<ServicoTurma>();
         services.AddScoped<ServicoMatricula>();
         services.AddScoped<ServicoCategoria>();
-
-        services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();
-        services.AddScoped<IRepositorioModulo, RepositorioModuloEmOrm>();
-        services.AddScoped<IRepositorioInstrutores, RepositorioInstrutoresEmOrm>();
-        services.AddScoped<IRepositorioAluno, RepositorioAlunoEmOrm>();
-        services.AddScoped<IRepositorioTurma, RepositorioTurmaEmOrm>();
-        services.AddScoped<IRepositorioMatricula, RepositorioMatriculaEmOrm>();
-        services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmOrm>();
     }
 }
