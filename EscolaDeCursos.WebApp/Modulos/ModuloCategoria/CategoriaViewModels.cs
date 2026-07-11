@@ -10,3 +10,8 @@ public record ListarCategoriaViewModel(
 public record CadastrarCategoriaViewModel(
     string Nome
 );
+
+public record EditarCategoriaViewModel(
+    Guid Id,
+    string Nome
+);

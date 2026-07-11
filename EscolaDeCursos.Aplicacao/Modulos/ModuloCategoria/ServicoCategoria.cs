@@ -32,19 +32,48 @@ public class ServicoCategoria : ServicoBase<Categoria>
         return Result.Ok();
     }
 
-    public Result Editar()
+    public Result Editar(EditarCategoriaDto dto)
     {
-        throw new NotImplementedException();
+        Categoria categoriaAtualizado = new Categoria(
+           dto.Nome
+       );
+
+        Result resultadoValidacao = ValidarEntidade(categoriaAtualizado);
+
+        if (resultadoValidacao.IsFailed)
+            return resultadoValidacao;
+
+        bool conseguiuEditar = repositorioCategoria.Editar(dto.Id, categoriaAtualizado);
+
+        if (!conseguiuEditar)
+            return Falha(string.Empty, "Categoria não encontrada.");
+
+        return Result.Ok();
     }
 
-    public Result Excluir()
+    public Result Excluir(Guid id)
     {
-        throw new NotImplementedException();
+        Categoria? categoria = repositorioCategoria.SelecionarPorId(id);
+
+        if (categoria == null)
+            return Falha(string.Empty, "Categoria não encontrada.");
+
+        repositorioCategoria.Excluir(id);
+
+        return Result.Ok();
     }
 
-    public Result SelecionarPorId()
+    public Result<DetalheCategoriaDto> SelecionarPorId(Guid id)
     {
-        throw new NotImplementedException();
+        Categoria? categoria = repositorioCategoria.SelecionarPorId(id);
+
+        if (categoria == null)
+            return Result.Fail("Categoria não encontrada.");
+
+        return Result.Ok(new DetalheCategoriaDto(
+            categoria.Id,
+            categoria.Nome
+        ));
     }
 
     public List<ListarCategoriaDto> SelecionarTodos()
