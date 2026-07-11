@@ -4,16 +4,24 @@ using EscolaDeCursos.Infra.Compartilhado.Orm;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
+namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migrations
 {
     [DbContext(typeof(EscolaDeCursosDbContext))]
-    partial class EscolaDeCursosDbContextModelSnapshot : ModelSnapshot
+<<<<<<<< HEAD:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711052351_ConfigModulos.Designer.cs
+    [Migration("20260711052351_ConfigModulos")]
+    partial class ConfigModulos
+========
+    [Migration("20260711190534_ConfigEscola")]
+    partial class ConfigEscola
+>>>>>>>> ModuloCategoria:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711190534_ConfigEscola.Designer.cs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,6 +64,25 @@ namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
                     b.ToTable("TBAluno", (string)null);
                 });
 
+<<<<<<<< HEAD:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711052351_ConfigModulos.Designer.cs
+========
+            modelBuilder.Entity("EscolaDeCursos.Dominio.Modulos.ModuloCategoria.Categoria", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_TBCategoria");
+
+                    b.ToTable("TBCategoria", (string)null);
+                });
+
+>>>>>>>> ModuloCategoria:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711190534_ConfigEscola.Designer.cs
             modelBuilder.Entity("EscolaDeCursos.Dominio.Modulos.ModuloCursos.Curso", b =>
                 {
                     b.Property<Guid>("Id")

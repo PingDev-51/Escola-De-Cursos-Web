@@ -1,16 +1,19 @@
 using EscolaDeCursos.Aplicacao.Modulos.ModuloAluno;
+using EscolaDeCursos.Aplicacao.Modulos.ModuloCategoria;
 using EscolaDeCursos.Aplicacao.Modulos.ModuloCursos;
 using EscolaDeCursos.Aplicacao.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Aplicacao.Modulos.ModuloMatricula;
 using EscolaDeCursos.Aplicacao.Modulos.ModulosCurso;
 using EscolaDeCursos.Aplicacao.Turmas.TurmaTurma;
 using EscolaDeCursos.Dominio.Modulos.ModuloAluno;
+using EscolaDeCursos.Dominio.Modulos.ModuloCategoria;
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 using EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Dominio.Modulos.ModuloMatricula;
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
 using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
 using EscolaDeCursos.Infra.Modulos.ModuloAluno;
+using EscolaDeCursos.Infra.Modulos.ModuloCategoria;
 using EscolaDeCursos.Infra.Modulos.ModuloCurso;
 using EscolaDeCursos.Infra.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Infra.Modulos.ModuloMatricula;
@@ -34,6 +37,7 @@ public static class InjecaoDependencia
         services.AddScoped<ServicoAluno>();
         services.AddScoped<ServicoTurma>();
         services.AddScoped<ServicoMatricula>();
+        services.AddScoped<ServicoCategoria>();
 
         services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();
         services.AddScoped<IRepositorioModulo, RepositorioModuloEmOrm>();
@@ -41,6 +45,6 @@ public static class InjecaoDependencia
         services.AddScoped<IRepositorioAluno, RepositorioAlunoEmOrm>();
         services.AddScoped<IRepositorioTurma, RepositorioTurmaEmOrm>();
         services.AddScoped<IRepositorioMatricula, RepositorioMatriculaEmOrm>();
-        // ADDScped<ServicoIntrutor>
+        services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmOrm>();
     }
 }

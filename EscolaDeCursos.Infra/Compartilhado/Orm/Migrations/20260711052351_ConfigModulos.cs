@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
+namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migrations
 {
     /// <inheritdoc />
-    public partial class ConfigModulos : Microsoft.EntityFrameworkCore.Migrations.Migration
+    public partial class ConfigEscola : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,6 +26,21 @@ namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
                 });
 
             migrationBuilder.CreateTable(
+<<<<<<<< HEAD:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711052351_ConfigModulos.cs
+========
+                name: "TBCategoria",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBCategoria", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+>>>>>>>> ModuloCategoria:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711190534_ConfigEscola.cs
                 name: "TBInstrutor",
                 columns: table => new
                 {
@@ -137,6 +152,18 @@ namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "UQ_TBAluno_Email",
+                table: "TBAluno",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "UQ_TBAluno_Telefone",
+                table: "TBAluno",
+                column: "Telefone",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TBCurso_ModuloId",
                 table: "TBCurso",
                 column: "ModuloId");
@@ -178,12 +205,21 @@ namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+<<<<<<<< HEAD:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711052351_ConfigModulos.cs
                 name: "TBMatricula");
 
             migrationBuilder.DropTable(
                 name: "TBAluno");
 
             migrationBuilder.DropTable(
+========
+                name: "TBAluno");
+
+            migrationBuilder.DropTable(
+                name: "TBCategoria");
+
+            migrationBuilder.DropTable(
+>>>>>>>> ModuloCategoria:EscolaDeCursos.Infra/Compartilhado/Orm/Migrations/20260711190534_ConfigEscola.cs
                 name: "TBTurma");
 
             migrationBuilder.DropTable(
