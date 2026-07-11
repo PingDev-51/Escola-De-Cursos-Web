@@ -117,7 +117,7 @@ public class ServicoCurso : ServicoBase<Curso>
         return repositorioModulo
             .SelecionarTodos()
             .Select(m => new OpcaoModuloDto(m.Id, m.Nome))
-            .ToList();
+            .ToList(); 
     }
 
 }

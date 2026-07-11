@@ -1,4 +1,16 @@
+using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
+
 namespace EscolaDeCursos.Aplicacao.Modulos.ModuloTurma;
+
+public record OpcaoInstrutorDto(
+    Guid Id,
+    string Nome
+);
+
+public record OpcaoCursoDto(
+    Guid Id,
+    string Nome
+);
 
 public record ListarTurmaDto(
     Guid Id,

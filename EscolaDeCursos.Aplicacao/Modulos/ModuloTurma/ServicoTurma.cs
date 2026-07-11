@@ -128,4 +128,20 @@ public class ServicoTurma : ServicoBase<Turma>
                 Turma.DataTermino
         ));
     }
+
+    public List<OpcaoInstrutorDto> SelecionarInstrutor()
+    {
+        return repositorioInstrutores
+            .SelecionarTodos()
+            .Select(i => new OpcaoInstrutorDto(i.Id, i.Nome))
+            .ToList();
+    }
+
+    public List<OpcaoCursoDto> SelecionarCurso()
+    {
+        return repositorioCurso
+            .SelecionarTodos()
+            .Select(c => new OpcaoCursoDto(c.Id, c.Nome))
+            .ToList();
+    }
 }
