@@ -34,11 +34,9 @@ public class ServicoMatricula : ServicoBase<Matricula>
         if (turmaSelecionada == null)
             return Falha(nameof(dto.TurmaId), "Selecione uma turma válida.");
 
-        Matricula novaMatricula = new Matricula(
-            alunoSelecionado,
-            turmaSelecionada,
-            dto.MatriculaId
-        );
+       Matricula novaMatricula = new Matricula(
+        alunoSelecionado, 
+        turmaSelecionada);
 
         Result resultadoValidacao = ValidarEntidade(novaMatricula);
 

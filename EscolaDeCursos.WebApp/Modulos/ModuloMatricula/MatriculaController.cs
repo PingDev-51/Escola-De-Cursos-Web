@@ -48,13 +48,22 @@ public class MatriculaController(
             return View(cadastrarVm);
         }
 
-
         CadastrarMatriculaDto dto =
-            mapeador.Map<CadastrarMatriculaDto>(cadastrarVm);
-
+        mapeador.Map<CadastrarMatriculaDto>(cadastrarVm);
 
         Result resultado = servicoMatricula.Cadastrar(dto);
 
+        if (resultado.IsFailed)
+        {
+            TempData.AddErrorMessage(resultado);
+
+            cadastrarVm = cadastrarVm with
+            {
+                Alunos = SelecionarAluno()
+            };
+
+            return View(cadastrarVm);
+        }
 
         return RedirectToAction(nameof(Listar));
     }

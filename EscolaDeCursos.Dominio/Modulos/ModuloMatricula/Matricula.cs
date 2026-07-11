@@ -10,16 +10,15 @@ public class Matricula : EntidadeBase<Matricula>
 {
     public Aluno? Aluno { get; set; }
     public Turma? Turma { get; set; }
-    public Guid MatriculaId {get; set;}
-
+    public Guid MatriculaId {get; set;} = Guid.CreateVersion7();
 
     Matricula() { }
 
-    public Matricula(Aluno aluno, Turma turma, Guid matriculaId)
+    public Matricula(Aluno aluno, Turma turma)
     {
         Aluno = aluno;
         Turma = turma;
-        MatriculaId = matriculaId;
+        MatriculaId = Guid.CreateVersion7();
     }
 
     public override void Atualizar(Matricula entidadeAtualizada)
@@ -35,10 +34,6 @@ public class Matricula : EntidadeBase<Matricula>
 
         if (Aluno == null)
             erros.Add("O aluno é obrigatório.");
-
-        if (MatriculaId == Guid.Empty)
-            erros.Add("A matrícula é obrigatória.");
-
         return erros;
     }
 }
