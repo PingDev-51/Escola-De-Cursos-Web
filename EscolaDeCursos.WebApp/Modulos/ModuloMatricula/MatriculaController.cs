@@ -12,9 +12,10 @@ public class MatriculaController(
 ) : Controller
 {
     [HttpGet]
-    public ActionResult Listar()
+    public ActionResult Listar(Guid id)
     {
-        List<ListarMatriculaDto> dtos = servicoMatricula.SelecionarTodos();
+
+    List<ListarMatriculaDto> dtos = servicoMatricula.SelecionarTodos(id);
 
         List<ListarMatriculaViewModel> listarVms =
             mapeador.Map<List<ListarMatriculaViewModel>>(dtos);
@@ -33,7 +34,6 @@ public class MatriculaController(
 
         return View(cadastrarVm);
     }
-
 
     [HttpPost]
     public ActionResult Cadastrar(CadastrarMatriculaViewModel cadastrarVm)
@@ -65,7 +65,7 @@ public class MatriculaController(
             return View(cadastrarVm);
         }
 
-        return RedirectToAction(nameof(Listar));
+        return RedirectToAction(nameof(Listar), new { id = cadastrarVm.TurmaId });
     }
 
 

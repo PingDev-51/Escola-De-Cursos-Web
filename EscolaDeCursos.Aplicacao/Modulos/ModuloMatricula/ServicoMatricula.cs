@@ -34,9 +34,9 @@ public class ServicoMatricula : ServicoBase<Matricula>
         if (turmaSelecionada == null)
             return Falha(nameof(dto.TurmaId), "Selecione uma turma válida.");
 
-       Matricula novaMatricula = new Matricula(
-        alunoSelecionado, 
-        turmaSelecionada);
+        Matricula novaMatricula = new Matricula(
+         alunoSelecionado,
+         turmaSelecionada);
 
         Result resultadoValidacao = ValidarEntidade(novaMatricula);
 
@@ -60,10 +60,14 @@ public class ServicoMatricula : ServicoBase<Matricula>
         return Result.Ok();
     }
 
-    public List<ListarMatriculaDto> SelecionarTodos()
+    public List<ListarMatriculaDto> SelecionarTodos(Guid? turmaId = null)
     {
-        return repositorioMatricula
-            .SelecionarTodos()
+        IEnumerable<Matricula> matriculas = repositorioMatricula.SelecionarTodos();
+
+        if (turmaId.HasValue)
+            matriculas = matriculas.Where(m => m.Turma!.Id == turmaId.Value);
+
+        return matriculas
             .Select(m => new ListarMatriculaDto(
                 m.Id,
                 m.Aluno!.Id,
@@ -73,7 +77,6 @@ public class ServicoMatricula : ServicoBase<Matricula>
             ))
             .ToList();
     }
-
     public Result<DetalhesMatriculaDto> SelecionarPorId(Guid id)
     {
         Matricula? matricula = repositorioMatricula.SelecionarPorId(id);

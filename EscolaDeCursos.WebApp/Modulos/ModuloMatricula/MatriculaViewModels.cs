@@ -12,7 +12,7 @@ public record ListarMatriculaViewModel(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );
 
@@ -31,7 +31,7 @@ public record DetalhesMatriculaViewModel(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );
 
@@ -39,6 +39,6 @@ public record ExcluirMatriculaViewModel(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );

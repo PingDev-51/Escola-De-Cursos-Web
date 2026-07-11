@@ -11,7 +11,7 @@ public record ListarMatriculaDto(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );
 
@@ -28,7 +28,7 @@ public record DetalhesMatriculaDto(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );
 
@@ -36,6 +36,6 @@ public record ExcluirMatriculaDto(
     Guid Id,
     Guid AlunosId,
     string AlunoNome,
-    string TurmaNome,
+    string TurmaId,
     Guid MatriculaId
 );
