@@ -1,6 +1,8 @@
 using EscolaDeCursos.Aplicacao;
 using EscolaDeCursos.Infra;
+using EscolaDeCursos.Infra.Compartilhado.Orm;
 using EscolaDeCursos.WebApp.Compartilhado;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfraRepositories(builder.Configuration, builder.Logging);
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddPresentationConfig(builder.Configuration);
+
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<EscolaDeCursosDbContext>(
+        name: "database_check",
+        failureStatus: HealthStatus.Unhealthy,
+        tags: ["ready"]
+);
 
 var app = builder.Build();
 
