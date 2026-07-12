@@ -19,6 +19,25 @@
 				"isDefault": false
 			},
 			"detail": "Builds the EscolaDeCursos.Database SQL project"
+		},
+		{
+			"label": "sqlproj: Build EscolaDeCusos.Database",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"c:/Users/kauan/Documents/Academia-Do-Programador-FullStack/Trabalhos/Escola-De-Cursos-Web/EscolaDeCusos.Database/EscolaDeCusos.Database.sqlproj",
+				"/p:NetCoreBuild=true",
+				"/p:NETCoreTargetsPath=c:/Users/kauan/.vscode/extensions/ms-mssql.sql-database-projects-vscode-1.6.1/BuildDirectory",
+				"/p:SystemDacpacsLocation=c:/Users/kauan/.vscode/extensions/ms-mssql.sql-database-projects-vscode-1.6.1/BuildDirectory"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"detail": "Builds the EscolaDeCusos.Database SQL project"
 		}
 	]
 }
