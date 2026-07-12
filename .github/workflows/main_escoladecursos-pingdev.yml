@@ -66,12 +66,12 @@ jobs:
               "ASPNETCORE_ENVIRONMENT=Production" `
               "ConnectionStrings__SqlServerEF=${{ secrets.AZURE_SQL_CONNECTION_STRINGS }}" `
               "Infra__NewRelic__LicenseKey=${{ secrets.NEWRELIC_LICENSE_KEY }}" `
-              "AutoMapper__LicenseKey=${{ secrets.AUTOMAPPER_LICENSE_KEY }}"
+              "WebApp_AutoMapper__LicenseKey=${{ secrets.AUTOMAPPER_LICENSE_KEY }}"
 
-             if ("${{ secrets.AZURE_SQL_CONNECTION_STRINGS }}" -eq "") {
-            throw "Secret AZURE_SQL_CONNECTION_STRINGS está vazio!"
+             if ("${{ secrets.AUTOMAPPER_LICENSE_KEY }}" -eq "") {
+            throw "Secret automapper está vazio!"
             }
-            Write-Host "Secret encontrado."
+            Write-Host "Automapper encontrado."
 
 
       - name: Deploy to Azure Web App
