@@ -68,12 +68,6 @@ jobs:
               "Infra__NewRelic__LicenseKey=${{ secrets.NEWRELIC_LICENSE_KEY }}" `
               "WebApp_AutoMapper__LicenseKey=${{ secrets.AUTOMAPPER_LICENSE_KEY }}"
 
-             if ("${{ secrets.AUTOMAPPER_LICENSE_KEY }}" -eq "") {
-            throw "Secret automapper está vazio!"
-            }
-            Write-Host "Automapper encontrado."
-
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
