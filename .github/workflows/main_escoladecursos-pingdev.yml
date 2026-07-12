@@ -55,6 +55,17 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4B505E65B7D64226BCDF9C1578D6E645 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F24AC9926BE04109854E13C268421FE7 }}
 
+          shell: pwsh
+          run: |
+                az webapp config appsettings set `
+                  --resource-group "EscolaDeCursosPingDev" `
+                  --name "EscolaDeCursos-PingDev" `
+                  --settings `
+                    "ASPNETCORE_ENVIRONMENT=Production" `
+                    "ConnectionStrings__SqlServerEF=${{ secrets.AZURE_SQL_CONNECTION_STRING }}" `
+                    "Infra__NewRelic__LicenseKey=${{ secrets.NEWRELIC_LICENSE_KEY }}" `
+                    "AutoMapper__LicenseKey=${{ secrets.AUTOMAPPER_LICENSE_KEY }}"
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
