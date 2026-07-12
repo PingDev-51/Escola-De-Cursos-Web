@@ -25,5 +25,7 @@ var app = builder.Build();
 app.UseRouting();
 app.MapDefaultControllerRoute();
 
+app.MapHealthChecks("/health");
+
 // Execução do Servidor
 app.Run();
