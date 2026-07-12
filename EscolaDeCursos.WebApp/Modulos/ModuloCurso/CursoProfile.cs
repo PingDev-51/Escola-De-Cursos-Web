@@ -16,6 +16,7 @@ public class CursoProfile : Profile
         CreateMap<DetalhesCursosDto, ExcluirCursoViewModel>();
 
         CreateMap<OpcaoModuloDto, OpcaoModuloViewModel>();
+        CreateMap<OpcaoCategoriaDto, OpcaoCategoriaViewModel>();
     }
 
 }

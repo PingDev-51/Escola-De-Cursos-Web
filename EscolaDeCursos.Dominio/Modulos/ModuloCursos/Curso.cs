@@ -1,5 +1,6 @@
 using System.Dynamic;
 using EscolaDeCursos.Dominio.Compartilhado;
+using EscolaDeCursos.Dominio.Modulos.ModuloCategoria;
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
 
 namespace EscolaDeCursos.Dominio.Modulos.ModuloCursos;
@@ -10,15 +11,17 @@ public class Curso : EntidadeBase<Curso>
     public Nivel Nivel { get; set; }
     public int CargaHoraria { get; set; }
     public Modulo? Modulo { get; set; }
+    public Categoria? Categoria { get; set; }
 
     public Curso() { }
 
-    public Curso(string nome, Nivel nivel, int cargaHoraria, Modulo? modulo)
+    public Curso(string nome, Nivel nivel, int cargaHoraria, Modulo? modulo, Categoria? categoria)
     {
         Nome = nome;
         Nivel = nivel;
         CargaHoraria = cargaHoraria;
         Modulo = modulo;
+        Categoria = categoria;
     }
 
     public override void Atualizar(Curso entidadeAtualizada)

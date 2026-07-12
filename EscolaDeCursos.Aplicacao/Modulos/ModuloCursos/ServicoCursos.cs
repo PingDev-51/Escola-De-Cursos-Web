@@ -1,6 +1,8 @@
 using EscolaDeCursos.Aplicacao.Compartilhado;
+using EscolaDeCursos.Dominio.Modulos.ModuloCategoria;
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 using EscolaDeCursos.Dominio.Modulos.ModuloModulosCurso;
+using EscolaDeCursos.Infra.Modulos.ModuloCategoria;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +12,17 @@ public class ServicoCurso : ServicoBase<Curso>
 {
     private readonly IRepositorioCurso repositorioCurso;
     private readonly IRepositorioModulo repositorioModulo;
+    private readonly IRepositorioCategoria repositorioCategoria;
 
     public ServicoCurso(
         IRepositorioCurso repositorioCurso,
-        IRepositorioModulo repositorioModulo
+        IRepositorioModulo repositorioModulo,
+        IRepositorioCategoria repositorioCategoria
     )
     {
         this.repositorioCurso = repositorioCurso;
         this.repositorioModulo = repositorioModulo;
+        this.repositorioCategoria = repositorioCategoria;
     }
 
     public Result Cadastrar(CadastrarCursosDto dto)
@@ -27,11 +32,17 @@ public class ServicoCurso : ServicoBase<Curso>
         if (moduloSelecionado == null)
             return Falha(nameof(dto.ModuloId), "Selecione um modulo valido.");
 
+        Categoria? categoriaSelecionada = repositorioCategoria.SelecionarPorId(dto.CategoriaId);
+
+        if (moduloSelecionado == null)
+            return Falha(nameof(dto.CategoriaId), "Selecione uma categoria valida.");
+
         Curso novoCurso = new Curso(
             dto.Nome,
             dto.Nivel,
             dto.CargaHoraria,
-            moduloSelecionado
+            moduloSelecionado,
+            categoriaSelecionada
         );
 
         Result resultadoValidacao = ValidarEntidade(novoCurso);
@@ -47,12 +58,14 @@ public class ServicoCurso : ServicoBase<Curso>
     public Result Editar(EditarCursosDto dto)
     {
         Modulo? moduloSelecionado = repositorioModulo.SelecionarPorId(dto.ModuloId);
+        Categoria? categoriaSelecionada = repositorioCategoria.SelecionarPorId(dto.CategoriaId);
 
         Curso cursoAtualizado = new Curso(
                 dto.Nome,
                 dto.Nivel,
                 dto.CargaHoraria,
-                moduloSelecionado
+                moduloSelecionado,
+                categoriaSelecionada
             );
 
         Result resultadoValidacao = ValidarEntidade(cursoAtualizado);
@@ -90,7 +103,9 @@ public class ServicoCurso : ServicoBase<Curso>
                 c.Nivel,
                 c.CargaHoraria,
                 c.Modulo.Id,
-                c.Modulo?.Nome
+                c.Modulo?.Nome,
+                c.Categoria.Id,
+                c.Categoria.Nome
             ))
             .ToList();
     }
@@ -108,7 +123,9 @@ public class ServicoCurso : ServicoBase<Curso>
             Curso.Nivel,
             Curso.CargaHoraria,
             Curso.Modulo.Id,
-            Curso.Modulo?.Nome
+            Curso.Modulo?.Nome,
+            Curso.Categoria.Id,
+            Curso.Categoria.Nome
         ));
     }
 
@@ -117,7 +134,14 @@ public class ServicoCurso : ServicoBase<Curso>
         return repositorioModulo
             .SelecionarTodos()
             .Select(m => new OpcaoModuloDto(m.Id, m.Nome))
-            .ToList(); 
+            .ToList();
     }
 
+    public List<OpcaoCategoriaDto> SelecionarCategoria()
+    {
+        return repositorioCategoria
+            .SelecionarTodos()
+            .Select(m => new OpcaoCategoriaDto(m.Id, m.Nome))
+            .ToList();
+    }
 }

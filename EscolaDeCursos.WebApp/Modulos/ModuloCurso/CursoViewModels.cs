@@ -9,13 +9,20 @@ public record OpcaoModuloViewModel(
     string Nome
 );
 
+public record OpcaoCategoriaViewModel(
+    Guid Id,
+    string Nome
+);
+
 public record ListarCursosViewModel(
     Guid Id,
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
     Guid ModuloId,
-    string ModuloNome
+    string ModuloNome,
+    Guid CategoriaId,
+    string CategoriaNome
 );
 
 public record CadastrarCursoViewModel(
@@ -27,14 +34,21 @@ public record CadastrarCursoViewModel(
     Nivel Nivel,
 
     [Required(ErrorMessage = "O campo \"Carga Horaria\" deve ser preenchido.")]
-   [Range(1, 1000, ErrorMessage = "A carga horária deve estar entre 1 e 1000.")]
+    [Range(1, 1000, ErrorMessage = "A carga horária deve estar entre 1 e 1000.")]
     int CargaHoraria,
 
     [Required(ErrorMessage = "O campo \"Modulo\" deve ser preenchido.")]
     Guid ModuloId,
 
     [ValidateNever]
-    List<OpcaoModuloViewModel> Modulos
+    List<OpcaoModuloViewModel> Modulos,
+
+    [Required(ErrorMessage = "O campo \"Modulo\" deve ser preenchido.")]
+    Guid CategoriaId,
+
+    [ValidateNever]
+    List<OpcaoCategoriaViewModel> Categorias
+
 );
 
 public record EditarCursoViewModel(
@@ -55,7 +69,13 @@ public record EditarCursoViewModel(
     Guid ModuloId,
 
     [ValidateNever]
-    List<OpcaoModuloViewModel> Modulos
+    List<OpcaoModuloViewModel> Modulos,
+
+    [Required(ErrorMessage = "O campo \"Modulo\" deve ser preenchido.")]
+    Guid CategoriaId,
+
+    [ValidateNever]
+    List<OpcaoCategoriaViewModel> Categorias
 );
 
 public record ExcluirCursoViewModel(
@@ -64,5 +84,7 @@ public record ExcluirCursoViewModel(
     Nivel Nivel,
     int CargaHoraria,
     Guid ModuloId,
-    string ModuloNome
+    string ModuloNome, 
+    Guid CategoriaId,
+    string CategoriaNome
 );

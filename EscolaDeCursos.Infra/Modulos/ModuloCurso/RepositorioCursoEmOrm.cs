@@ -11,6 +11,7 @@ public sealed class RepositorioCursoEmOrm(EscolaDeCursosDbContext dbContext) :
     {
         return registros
             .Include(c => c.Modulo)
+            .Include(c => c.Categoria)
             .SingleOrDefault(c => c.Id == idSelecionado);
     }
 
@@ -18,6 +19,7 @@ public sealed class RepositorioCursoEmOrm(EscolaDeCursosDbContext dbContext) :
     {
         return registros
             .Include(c => c.Modulo)
+            .Include(c => c.Categoria)
             .ToList();
     }
 
@@ -25,6 +27,7 @@ public sealed class RepositorioCursoEmOrm(EscolaDeCursosDbContext dbContext) :
     {
         return registros
             .Include(c => c.Modulo)
+            .Include(c => c.Categoria)
             .ToList();
     }
 }

@@ -1,6 +1,7 @@
 using System.Dynamic;
 using System.Globalization;
 using EscolaDeCursos.Dominio.Compartilhado;
+using EscolaDeCursos.Dominio.Modulos.ModuloCategoria;
 using EscolaDeCursos.Dominio.Modulos.ModuloCursos;
 using EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
 

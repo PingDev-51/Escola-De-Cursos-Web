@@ -8,14 +8,17 @@ public record ListarCursosDto(
     Nivel Nivel,
     int CargaHoraria,
     Guid ModuloId,
-    string ModuloNome
+    string ModuloNome,
+    Guid CategoriaId,
+    string CategoriaNome
 );
 
 public record CadastrarCursosDto(
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
-    Guid ModuloId
+    Guid ModuloId,
+    Guid CategoriaId
 );
 
 public record EditarCursosDto(
@@ -23,7 +26,8 @@ public record EditarCursosDto(
     string Nome,
     Nivel Nivel,
     int CargaHoraria,
-    Guid ModuloId
+    Guid ModuloId,
+    Guid CategoriaId
 );
 
 public record DetalhesCursosDto(
@@ -32,8 +36,11 @@ public record DetalhesCursosDto(
     Nivel Nivel,
     int CargaHoraria,
     Guid ModuloId,
-    string ModuloNome
+    string ModuloNome,
+    Guid CategoriaId,
+    string CategoriaNome
 );
 
 public record OpcaoModuloDto(Guid Id, string Nome);
 
+public record OpcaoCategoriaDto(Guid Id, string Nome);

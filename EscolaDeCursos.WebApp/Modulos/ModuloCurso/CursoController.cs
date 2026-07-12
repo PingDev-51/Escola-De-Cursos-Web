@@ -25,7 +25,9 @@ public class CursoController(ServicoCurso servicoCurso, IMapper mapeador) : Cont
             Dominio.Modulos.ModuloCursos.Nivel.Facil,
             0,
             Guid.Empty,
-            SelecionarModulo()
+            SelecionarModulo(),
+            Guid.Empty,
+            SelecionarCategoria()
         );
 
         return View(cadastrarVm);
@@ -67,7 +69,9 @@ public class CursoController(ServicoCurso servicoCurso, IMapper mapeador) : Cont
             resultado.Value.Nivel,
             resultado.Value.CargaHoraria,
             resultado.Value.ModuloId,
-            SelecionarModulo()
+            SelecionarModulo(),
+            resultado.Value.CategoriaId,
+            SelecionarCategoria()
         );
 
         return View(editarVm);
@@ -125,5 +129,12 @@ public class CursoController(ServicoCurso servicoCurso, IMapper mapeador) : Cont
         List<OpcaoModuloDto> dtos = servicoCurso.SelecionarModulo();
 
         return mapeador.Map<List<OpcaoModuloViewModel>>(dtos);
+    }
+
+     private List<OpcaoCategoriaViewModel> SelecionarCategoria()
+    {
+        List<OpcaoCategoriaDto> dtos = servicoCurso.SelecionarCategoria();
+
+        return mapeador.Map<List<OpcaoCategoriaViewModel>>(dtos);
     }
 }

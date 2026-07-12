@@ -33,5 +33,11 @@ public sealed class CursoConfiguration : IEntityTypeConfiguration<Curso>
             .HasForeignKey("ModuloId")
             .HasConstraintName("FK_TBCurso_TBModulo")
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasOne(c => c.Categoria)
+           .WithMany()
+           .HasForeignKey("CategoriaId")
+           .HasConstraintName("FK_TBCurso_TBCategoria")
+           .OnDelete(DeleteBehavior.NoAction);
     }
 }
