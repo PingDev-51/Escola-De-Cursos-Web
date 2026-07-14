@@ -1,24 +1,21 @@
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Página Inicial";
 }
 
-<div class="row g-4 align-items-center">
+<div class="row g-2 align-items-center">
     <div class="col-lg-6">
+        <h1 class="display-6 fw-semibold mb-3">Página Inicial</h1>
         <p class="lead text-secondary mb-4">
             Organize Seu Curso conosco :)
         </p>
 
         <div class="d-flex flex-column gap-2" style="max-width: 260px;">
-            <a class="btn btn-outline-dark rounded-pill" asp-controller="Modulo" asp-action="Listar">Modulos</a>
-            <a class="btn btn-outline-dark rounded-pill" asp-controller="Categoria" asp-action="Listar">Categorias</a>
-            <a class="btn btn-outline-dark rounded-pill" asp-controller="Instrutor" asp-action="Listar">Instrutores</a>
-            <a class="btn btn-outline-dark rounded-pill" asp-controller="Curso" asp-action="Listar">Cursos</a>
-            <a class="btn btn-outline-dark rounded-pill" asp-controller="Turma" asp-action="Listar">Turmas</a>
-            
-           
-            
-            
+            <a class="btn btn-primary rounded-pill" asp-controller="Curso" asp-action="Listar">Cursos</a>
+            <a class="btn btn-primary rounded-pill" asp-controller="Categoria" asp-action="Listar">Categorias</a>
+            <a class="btn btn-primary rounded-pill" asp-controller="Instrutor" asp-action="Listar">Instrutores</a>
+            <a class="btn btn-primary rounded-pill" asp-controller="Modulo" asp-action="Listar">Modulos</a>
+            <a class="btn btn-primary rounded-pill" asp-controller="Matricula" asp-action="Listar">Matriculas</a>
+            <a class="btn btn-primary rounded-pill" asp-controller="Turma" asp-action="Listar">Turmas</a>
         </div>
     </div>
 
