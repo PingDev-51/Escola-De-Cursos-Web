@@ -24,6 +24,7 @@ var app = builder.Build();
 // Middlewares de roteamento
 app.UseRouting();
 app.MapDefaultControllerRoute();
+app.UseStaticFiles();
 
 app.MapHealthChecks("/health");
 
