@@ -23,6 +23,8 @@ var app = builder.Build();
 
 // Middlewares de roteamento
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapDefaultControllerRoute();
 app.UseStaticFiles();
 

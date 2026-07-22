@@ -1,4 +1,8 @@
+using System.Net;
 using EscolaDeCursos.WebApp.Compartilhado.Mapping;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace EscolaDeCursos.WebApp.Compartilhado;
 
@@ -20,6 +24,24 @@ public static class InjecaoDependencia
              // Localização das Views compartilhadas: /Compartilhado/Apresentacao/Views/_Layout.cshtml
              options.ViewLocationFormats.Add("/Compartilhado/Views/{0}.cshtml");
          });
+
+        services.AddAuthentication(options =>
+        {
+            options.DefaultScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultSignInScheme = IdentityConstants.ApplicationScheme;
+        }).AddCookie(IdentityConstants.ApplicationScheme, cookieOptions =>
+        {
+            cookieOptions.LoginPath = "/Autenticacao/Entrar";
+            cookieOptions.AccessDeniedPath = "/Autenticacao/Entrar";
+        });
+
+        services.AddAuthorization(options =>
+        {
+            options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+        });
 
         services.AddAutoMapper(mapperConfig =>
         {
