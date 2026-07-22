@@ -55,7 +55,7 @@ public sealed class AutenticacaoController(
             Nome = viewModel.Nome
         };
 
-        dbContext.Instituicao.Add(instituicao);
+        dbContext.Instituicoes.Add(instituicao);
 
         await dbContext.SaveChangesAsync();
 

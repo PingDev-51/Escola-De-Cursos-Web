@@ -4,6 +4,7 @@ using EscolaDeCursos.Infra.Compartilhado.Orm;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EscolaDeCursos.Infra.Compartilhado.Orm.Migration
 {
     [DbContext(typeof(EscolaDeCursosDbContext))]
-    partial class EscolaDeCursosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260722201705_Add_Identity_UserI2d")]
+    partial class Add_Identity_UserI2d
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
