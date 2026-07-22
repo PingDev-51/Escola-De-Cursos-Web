@@ -7,12 +7,15 @@ using EscolaDeCursos.Dominio.Modulos.ModuloCategoria;
 using EscolaDeCursos.Dominio.Modulos.ModuloMatricula;
 using EscolaDeCursos.Dominio.Modulos.ModuloInstrutores;
 using EscolaDeCursos.Dominio.Modulos.ModuloTurma;
+using EscolaDeCursos.Dominio.Modulos.ModuloInstituicao;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace EscolaDeCursos.Infra.Compartilhado.Orm;
 
 public sealed class EscolaDeCursosDbContext(
     DbContextOptions<EscolaDeCursosDbContext> options)
-    : DbContext(options)
+    : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>(options)
 {
     public DbSet<Curso> Cursos => Set<Curso>();
     public DbSet<Modulo> Modulos => Set<Modulo>();
@@ -21,6 +24,7 @@ public sealed class EscolaDeCursosDbContext(
     public DbSet<Categoria> Categoria => Set<Categoria>();
     public DbSet<Matricula> Matricula => Set<Matricula>();
     public DbSet<Turma> Turma => Set<Turma>();
+    public DbSet<Instituicao> Instituicao => Set<Instituicao>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
